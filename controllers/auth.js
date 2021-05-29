@@ -182,8 +182,8 @@ exports.register = (req, res) => {
             port: 465,
             secure: true, // use TLS
             auth: {
-                user: "sahinreja511@gmail.com",
-                pass: "sahin@1997"
+                user: "useremail",
+                pass: "userpassword"
             }
         });
 
