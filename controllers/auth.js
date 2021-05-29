@@ -188,7 +188,7 @@ exports.register = (req, res) => {
         });
 
         await transporter.sendMail({
-            from: 'ResumeGenerator " <sahinreja511@gmail.com>', // sender address
+            from: 'ResumeGenerator " <Useremail>', // sender address
             to: email, // list of receivers
             subject: "TeamNoob from Rusume Creator", // Subject line
             html:
