@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.0.1/dist/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css"
+        href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/resume.css">
+    <title>Resume Creator || Template 2</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #cv-template{
+            display: none;
+        }
+        #btn2{
+            visibility: hidden;
+        }
+        #pbt{
+            display: none;
+
+        }
+        @media print{
+            .non-printable:{
+                display: none;
+            }
+            .printable{
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container pt-2 non-printable" id="fm">
+        <form action="" onsubmit="event.preventDefault(); return generateCV()">
+            <a href="/home" class="btn btn-danger my-5" style="display: flex;justify-content:right">Back to Home
+                Page</a>
+            <div class="clear"></div>
+            <div class="row">
+                <h2 class="text-center" style="color: #ffffff;">Create Your Resume</h2>
+                <div class="col-md-6 col-10 mx-auto">
+                    <h3 style="color: #ffffff;">Personal Details</h3>
+                    <div class="form-group mb-3">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name"  required placeholder="Enter Full Name" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email"  required placeholder="Enter Email Address" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone"  required placeholder="Enter Phone Number" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="objctive">Profile</label>
+                        <textarea name="" id="profile" cols="30" rows="5" class="form-control" 
+                            required placeholder="Say Something about yourself"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6 col-10 mx-auto">
+                    <h3 style="color: #ffffff;">Professional Details</h3>
+                    <div class="form-group mb-3">
+                        <label for="education">Skills</label>
+                        <textarea name="" id="skill" cols="30" rows="2" class="form-control" 
+                            required placeholder="Skills"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="education">Technical</label>
+                        <textarea name="" id="technical" cols="30" rows="2" class="form-control" 
+                            required placeholder="Technical"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="objctive">Experience</label>
+                        <textarea name="" id="exp" cols="30" rows="2" class="form-control" 
+                            required placeholder="Experience"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="objctive">Education</label>
+                        <textarea name="" id="edu" cols="30" rows="2" class="form-control" 
+                            required placeholder="Education"></textarea>
+                    </div>
+
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success my-5">Generate</button>
+        </form>
+    </div>
+    <div style="padding-bottom:35px;">
+        <div class="container py-5">
+            <a href="/home" class="btn btn-danger non-printable" id="btn2"
+                style="display: flex;justify-content:right">Back to Home Page</a>
+        </div>
+        <div class="container printable" id="cv-template">
+            <div id="doc2" class="yui-t7">
+                <div id="inner">
+
+                    <div id="hd">
+                        <div class="yui-gc">
+                            <div class="yui-u first">
+                                <h1 id="tname">Saurav</h1>
+                                <h2>coder</h2>
+                            </div>
+
+                            <div class="yui-u">
+                                <div class="contact-info">
+                                    {{!-- <h3><a id="pdf" href="#">Download PDF</a></h3> --}}
+                                    <h3 id="temail"></h3>
+                                    <h3 id="tnumber">number</h3>
+                                </div>
+                                <!--// .contact-info -->
+                            </div>
+                        </div>
+                        <!--// .yui-gc -->
+                    </div>
+                    <!--// hd -->
+
+                    <div id="bd">
+                        <div id="yui-main">
+                            <div class="yui-b">
+
+                                <div class="yui-gf">
+                                    <div class="yui-u first">
+                                        <h2>Profile</h2>
+                                    </div>
+                                    <div class="yui-u">
+                                        <p class="enlarge" id="tprofile">
+                                            Progressively evolve cross-platform ideas before impactful infomediaries.
+                                            Energistically visualize tactical initiatives before cross-media catalysts
+                                            for change.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!--// .yui-gf -->
+
+                                <div class="yui-gf">
+                                    <div class="yui-u first">
+                                        <h2>Skills</h2>
+                                    </div>
+                                    <div class="yui-u">
+
+                                        <div class="talent">
+                                            {{!-- <h2>Web Design</h2> --}}
+                                            <p id="tskill">Assertively exploit wireless initiatives rather than synergistic core
+                                                competencies. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--// .yui-gf -->
+
+                                <div class="yui-gf">
+                                    <div class="yui-u first">
+                                        <h2>Technical</h2>
+                                    </div>
+                                    <div class="yui-u">
+                                     <div class="talent">
+                                         <p id="ttechnical"></p>
+                                     </div>
+                                     </div>
+                                </div>
+                                <!--// .yui-gf-->
+
+                                <div class="yui-gf">
+
+                                    <div class="yui-u first">
+                                        <h2>Experience</h2>
+                                    </div>
+                                    <!--// .yui-u -->
+
+                                    <div class="yui-u">
+
+                                        <div class="job">
+                                            <p id="texp">Intrinsicly enable optimal core competencies through corporate
+                                                relationships. Phosfluorescently implement worldwide vortals and
+                                                client-focused imperatives. Conveniently initiate virtual paradigms and
+                                                top-line convergence. </p>
+                                        </div>
+
+                                    </div>
+                                    <!--// .yui-u -->
+                                </div>
+                                <!--// .yui-gf -->
+
+
+                                <div class="yui-gf last">
+                                    <div class="yui-u first">
+                                        <h2>Education</h2>
+                                    </div>
+                                    <div class="yui-u">
+                                      <h3 id="tedu"></h3>
+                                    </div>
+                                </div>
+                                <!--// .yui-gf -->
+
+
+                            </div>
+                            <!--// .yui-b -->
+                        </div>
+                        <!--// yui-main -->
+                    </div>
+                    <!--// bd -->
+                    <!--// footer -->
+
+                </div><!-- // inner -->
+            </div>
+            <!--// doc -->
+
+        </div>
+        <center>
+              <button onclick="printDiv('cv-template')" class="btn btn-primary non-printable my-3" id="pbt">Print</button>
+        </center>
+    </div>
+    <script src="/resume2.js" ></script>
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!--
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    --}}
+    {{!--
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.0.1/dist/journal/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.0.1/dist/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <title>Resume Creator || Template 1</title>
+    <style>
+        html {
+            font-size: 70.5%;
+        }
+
+        hr {
+            border-bottom: 5px solid;
+        }
+        #cv-template{
+            display: none;
+        }
+        #btn2{
+            visibility: hidden;
+        }
+        @media print{
+            .non-printable {
+                display: none;
+            }
+            .printable {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container my-5 non-printable" id="fm">
+        <form action="" onsubmit="event.preventDefault(); return generateCV()">
+        <a href="/home" class="btn btn-danger" style="display: flex;justify-content:right">Back to Home Page</a>
+        <div class="clear"></div>
+        <div class="row">
+            <h2 class="text-center">Create Your Resume</h2>
+            <div class="col-md-6 col-10 mx-auto">
+                <h3>Personal Details</h3>
+                <div class="form-group mb-3">
+                    <label for="name">Full Name</label>
+                    <input type="text"   id="name" required placeholder="Enter Full Name" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email Address</label>
+                    <input type="email"   id="email" required placeholder="Enter Email Address" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="phone">Phone Number</label>
+                    <input type="text"   id="phone" required placeholder="Enter Phone Number" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="address">Address</label>
+                    <textarea name="address" id="address" cols="30" rows="5" class="form-control"
+                           required placeholder="Enter Full Adress"></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="linkedIn">LinkedIn</label>
+                    <input type="text"   id="linkedin" required placeholder="Enter LinkedIn URL" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="github">Github</label>
+                    <input type="text"   id="github" required placeholder="Enter Github URL" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="facebook">Facebook</label>
+                    <input type="text"   required placeholder="Enter Facebok URL" id="facebook" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="objctive">About Me</label>
+                    <textarea name="" id="aboutme" cols="30" rows="5" class="form-control"
+                          required placeholder="Say Something about yourself"></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="age">Age</label>
+                    <input type="text" id="age" required placeholder="Enter your age" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="wy">Working Year</label>
+                    <input type="text" id="working" required placeholder="Enter working year" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 col-10 mx-auto">
+                <h3>Professional Details</h3>
+                <div class="form-group mb-3">
+                    <label for="graduation">Graduation Details</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text"   required placeholder="Course Name" id="gcname" class="form-control mb-2">
+                            <input type="text" name="" id="giname"   required placeholder="Institute Name" class="form-control mb-2">
+                            <input type="text" name="" id="gbname"   required placeholder="Board Name" class="form-control mb-2">
+                            <input type="text" name="" id="giaddress"   required placeholder="Institute Address" class="form-control mb-2">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" name="" id="gpassyr"   required placeholder="Passed Year" class="form-control mb-2">
+                            <input type="text" name="" id="gpassmark"   required placeholder="Passed Marks" class="form-control mb-2">
+                            <input type="text" name="" id="gdiv"   required placeholder="Division" class="form-control mb-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="graduation">10th+2 Details</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text"   required placeholder="Course Name" id="hcname" class="form-control mb-2">
+                            <input type="text" name="" id="hiname"   required placeholder="Institute Name" class="form-control mb-2">
+                            <input type="text" name="" id="hbname"   required placeholder="Board Name" class="form-control mb-2">
+                            <input type="text" name="" id="hiaddress"   required placeholder="Institute Address" class="form-control mb-2">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" name="" id="hpassyr"   required placeholder="Passed Year" class="form-control mb-2">
+                            <input type="text" name="" id="hpassmark"   required placeholder="Passed Marks" class="form-control mb-2">
+                            <input type="text" name="" id="hdiv"   required placeholder="Division" class="form-control mb-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="graduation">10th Details</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" name="" id="miname"   required placeholder="Institute Name" class="form-control mb-2">
+                            <input type="text" name="" id="mbname"   required placeholder="Board Name" class="form-control mb-2">
+                            <input type="text" name="" id="miaddress"   required placeholder="Institute Address" class="form-control mb-2">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" name="" id="mpassyr"   required placeholder="Passed Year" class="form-control mb-2">
+                            <input type="text" name="" id="mpassmark"   required placeholder="Passed Marks" class="form-control mb-2">
+                            <input type="text" name="" id="mdiv"   required placeholder="Division" class="form-control mb-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="objctive">Work Experience</label>
+                    <textarea name="" id="workexp" cols="30" rows="5" class="form-control"
+                          required placeholder="Work Experience"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="education">Skills</label>
+                    <textarea name="" id="skill" cols="30" rows="5" class="form-control"
+                          required placeholder="Skills"></textarea>
+                </div>
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Generate</button>
+     </form>
+    </div>
+    <div>
+     <div class="container">
+             <a href="/home" class="btn btn-danger non-printable mt-4" id="btn2" style="display: flex;justify-content:right">Back to Home Page</a>
+     </div>
+    <div class="container my-5 bg-warning p-5 text-dark printable" id="cv-template">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4 mx-auto">
+                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/man5-512.png"
+                            alt="myImage" class="img-fluid my-img" width="200">
+                    </div>
+                    <div class="col-4" style="margin-top: 10px;margin-left:0">
+                        <h1 id="tname" style="text-transform: capitalize;">Sahin Reja</h1>
+                        <br>
+                        <div class="phone">
+                            <i class="fas fa-phone"></i> <p id="tphone">7001283402</p>
+                        </div>
+                        <div class="email">
+                            <i class="fas fa-envelope"></i> <p id="temail">sahinrejs511@gmail.com</p>
+                        </div>
+                        <div class="Address">
+                            <i class="fas fa-home"></i> <p id="taddress" style="text-transform: capitalize;">Vill - Banshtola , Po - Sahabajpur ,PS - Kaliachak , Dist -
+                            Malda</p>
+                        </div>
+                        <div class="socials">
+                            <i class="fab fa-linkedin"></i> <p id="tlinkedin"></p>
+                            <i class="fab fa-github"></i></i> <p id="tgithub"></p>
+                            <i class="fab fa-facebook"></i> <p id="tfacebook"></p>
+                        </div>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4">
+                        <div style="line-height:3px">
+                            <p>Work Experience(YEAR)</p>
+                            <p id="tworking">6</p>
+                            <p>Age</p>
+                            <p id="tage">25</p>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <h5>About Me</h5>
+                        <p id="taboutme">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt perspiciatis id dignissimos
+                            consequatur
+                            optio beatae ducimus! Sunt consequatur temporibus aut ex quo sed natus dolor? Consequatur
+                            illo adipisci vitae repellat.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam magni, quas id delectus
+                            fuga vel
+                            debitis quo eos aut tempore blanditiis amet nobis veritatis natus, impedit quaerat, iusto
+                            quae laborum?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row mb-5">
+            <h3 class="text-center mb-3" style="border-bottom: 3px solid blue;"><i
+                    class="fas fa-graduation-cap"></i>Education</h3>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 id="tgcname"><b>Masters, Business Administration</b></h5>
+                        <h5 id="tginame">Symbiosis Institute of Management Studies</h5>
+                        <h5 id="tgbname">AICTE & UGC Board</h5>
+                        <h5 id="tgiaddress">Pune, Maharashtra</h5>
+                    </div>
+                    <div class="col-6">
+                        <h5 id="tgpassyr">Graduated, July 2010</h5>
+                        <h5 id="tgpassmark">Marks</h5>
+                        <h5 id="tgdiv">Division</h5>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <h5 id="thcname"><b>Masters, Business Administration</b></h5>
+                        <h5 id="thiname">Symbiosis Institute of Management Studies</h5>
+                        <h5 id="thbname">AICTE & UGC Board</h5>
+                        <h5 id="thiaddress">Pune, Maharashtra</h5>
+                    </div>
+                    <div class="col-6">
+                        <h5 id="thpassyr">Graduated, July 2010</h5>
+                        <h5 id="thpassmark">Marks</h5>
+                        <h5 id="thdiv">Division</h5>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <h5 id="tmname">Symbiosis Institute of Management Studies</h5>
+                        <h5 id="tmbname">AICTE & UGC Board</h5>
+                        <h5 id="tmiaddress">Pune, Maharashtra</h5>
+                    </div>
+                    <div class="col-6">
+                        <h5 id="tmpassyr">Graduated, July 2010</h5>
+                        <h5 id="tmpassmark">Marks</h5>
+                        <h5 id="tmdiv">Division</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {{!-- <div class="row mb-5">
+            <h3 class="text-center mb-3" style="border-bottom: 3px solid blue;"><i class="fas fa-cogs"></i> Professional
+                Qualification</h3>
+            <div class="col-10 mx-auto">
+               <h5 id=""></h5>
+            </div>
+        </div> --}}
+
+
+        <div class="row">
+            <h3 class="text-center mb-3" style="border-bottom: 3px solid blue;"><i class="fas fa-skull-crossbones"></i>
+                Work Experience</h3>
+            <div class="col-10 mx-auto">
+                <h5 id="tworkexp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolores quae minima corporis
+                    dignissimos amet? Dolorum facere culpa tempora exercitationem ipsum deleniti maiores cupiditate
+                    animi, eveniet velit temporibus voluptatibus consequatur?
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis molestiae, libero ipsa natus maxime
+                    expedita et id ducimus, corrupti quaerat fugit. Deserunt quos saepe dicta quo ratione maiores
+                    repudiandae nihil?
+
+                </h5>
+            </div>
+        </div>
+         <div class="row mb-5">
+            <h3 class="text-center mb-3" style="border-bottom: 3px solid blue;"><i class="fas fa-skull-crossbones"></i>
+                Skills</h3>
+            <div class="col-10 mx-auto">
+               <h5 id="tskill"></h5>
+            </div>
+        </div>
+        <button onclick="printDiv('cv-template')" class="btn btn-primary non-printable">Print</button>
+    </div>
+    </div>
+    <script src="/create1.js"></script>
+</body>
+
+</html>

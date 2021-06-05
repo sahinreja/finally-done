@@ -66,6 +66,21 @@ router.get('/readfile',(req,res)=>{
         res.redirect('/');
     }
 })
+
+router.get('/create1',(req,res)=>{
+    if(req.session.userId){
+        return res.render('create.hbs');
+    }else{
+        res.redirect('/');
+    }
+})
+router.get('/create2',(req,res)=>{
+    if(req.session.userId){
+        return res.render('create2.hbs');
+    }else{
+        res.redirect('/');
+    }
+})
 router.get('/logout' , (req,res)=>{
     req.session.destroy();
     res.redirect('/');
